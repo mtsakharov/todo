@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::post('login', [\App\Http\Controllers\Api\Auth\LoginController::class, 'login']);
+Route::post('forgot-password', [\App\Http\Controllers\Api\Auth\LoginController::class, 'forgotPassword']);
+Route::post('reset-password', [\App\Http\Controllers\Api\Auth\LoginController::class, 'resetPassword']);
+Route::post('register', [\App\Http\Controllers\Api\Auth\RegisterController::class, 'register']);
+
 Route::middleware('auth:api')->group(function () {
     Route::apiResources([
         'users' => \App\Http\Controllers\Api\UserController::class,
